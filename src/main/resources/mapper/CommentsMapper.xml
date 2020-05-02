@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tao.blog.u.article.mapper.CommentsMapper">
+
+	<resultMap id="CommentsMap" type="com.tao.blog.u.article.model.Comments">
+		<id property="id" column="comments_id" jdbcType="INTEGER" />
+		<result property="articleId" column="article_id" jdbcType="INTEGER" />
+		<result property="content" column="content" jdbcType="VARCHAR" />
+		<result property="userId" column="userid" jdbcType="INTEGER" />
+		<result property="ip" column="ip" jdbcType="VARCHAR" />
+		<result property="macAddre" column="mac_address" jdbcType="VARCHAR" />
+		<result property="createTime" column="create_time" jdbcType="DATE" />
+		<result property="updateTime" column="update_time" jdbcType="DATE" />
+	</resultMap>
+
+	<select id="queryAll" resultMap="CommentsMap">
+		select * from article_comments
+	</select>
+
+
+
+
+</mapper>

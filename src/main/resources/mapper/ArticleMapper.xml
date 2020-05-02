@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tao.blog.u.article.mapper.ArticleMapper">
+
+	<resultMap id="articleMap"
+		type="com.tao.blog.u.article.model.Article">
+		<id property="ariticleId" column="ariticle_id" jdbcType="INTEGER" />
+		<result property="title" column="title" jdbcType="VARCHAR" />
+		<result property="summary" column="summary" jdbcType="VARCHAR" />
+		<result property="author" column="author" jdbcType="VARCHAR" />
+		<result property="content" column="content" jdbcType="VARCHAR" />
+		<result property="status" column="status" jdbcType="VARCHAR" />
+		<result property="articleKey" column="article_key" jdbcType="VARCHAR" />
+		<result property="isTop" column="is_top" jdbcType="INTEGER" />
+		<result property="traffic" column="traffic" jdbcType="INTEGER" />
+		<result property="likesNum" column="likes_num" jdbcType="INTEGER" />
+		<result property="evaluateId" column="evaluate_id" jdbcType="INTEGER" />
+		<result property="categoryId" column="category_id" jdbcType="INTEGER" />
+		<result property="createTime" column="create_time" jdbcType="DATE" />
+		<result property="createUser" column="create_user" jdbcType="VARCHAR" />
+		<result property="modifiedTime" column="modified_time" jdbcType="DATE" />
+		<result property="modifiedUser" column="modified_user" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="queryAll" resultMap="articleMap">
+		select * from article
+	</select>
+
+	<select id="queryById" parameterType="String"
+		resultMap="articleMap">
+		select * from article where ariticle_id=#{id}
+	</select>
+
+	<insert id="save" parameterType="com.tao.blog.u.article.model.Article">
+		INSERT INTO blog.article(title, summary, author, content, status,
+		article_key, is_top, traffic, likes_num, evaluate_id, category_id,
+		create_time,
+		create_user, modified_time, modified_user)
+		VALUES (#{title}, #{summary}, #{author}, #{content}, #{status},
+		#{articleKey},
+		#{isTop}, #{traffic}, #{likesNum}, #{evaluateId},#{categoryId},
+		#{createTime}, #{createUser}, #{modifiedTime}, #{modifiedUser})
+	</insert>
+
+	<update id="update"
+		parameterType="com.tao.blog.u.article.model.Article">
+		UPDATE article SET title = #{title}, summary =
+		#{summary}, author = #{author}, content = #{content}
+		, status =
+		#{status}, article_key = NULL, is_top = #{isTop}, traffic =
+		#{traffic},
+		likes_num = NULL, evaluate_id = NULL, category_id =
+		#{categoryId},
+		modified_time = #{modifiedTime}, modified_user =
+		#{modifiedUser} WHERE ariticle_id = #{ariticleId};
+	</update>
+
+	<delete id="delete" parameterType="String">
+		delete from article where ariticle_id=#{id}
+	</delete>
+	
+</mapper>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="header::head-css">
+<meta charset="utf-8">
+<title>Home</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+</head>
+<body>
+	<!-- 头部引入 -->
+	<header th:include="header::common-head"></header>
+
+	<div class="widewrapper main">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 blog-main">
+					<div class="row">
+					
+						<div  th:each="article,status : ${articleList}" class="col-md-6 col-sm-6">
+							<article th:if="${article.isTop == 1}"  class=" blog-teaser">
+								<header>
+									<img th:src="@{/img/1.jpg}" alt="">
+									<h4>
+										<a  th:href="@{'/article/details/'+${article.ariticleId}}"  class="index-ariticle-title" >  [[${article.title}]]</a>
+									</h4>
+									<span class="meta">[[${article.createTime}]]</span>
+									<hr>
+								</header>
+								<div class="body">[[${article.summary}]]</div>
+								<div class="clearfix">
+									<a th:href="@{'/article/details/'+${article.ariticleId}}" class="btn btn-clean-one">查看详情</a>
+								</div>
+							</article>
+						</div>
+					</div>
+
+					<div class="paging">
+						<a th:href="@{/article/index}" class="older"> 查看更多...</a>
+					</div>
+				</div>
+				<aside class="col-md-4 blog-aside">
+
+					<div class="aside-widget">
+						<header>
+							<h3>精选好文推荐</h3>
+						</header>
+						<div class="body">
+							<ul th:each="article,status : ${articleList}"  class="clean-list">
+								<li th:if="${article.isTop == 1}" ><a href="">[[${article.title}]]</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="aside-widget">
+						<header>
+							<h3>人气阅读版</h3>
+						</header>
+						<div class="body">
+							<ul th:each="article,status : ${articleList}"  class="clean-list">
+								<li th:if="${article.isTop == 1}" ><a href="">[[${article.title}]]</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="aside-widget">
+						<header>
+							<h3>文章类型</h3>
+						</header>
+						<div class="body clearfix">
+							<ul  th:each="category,status : ${articleCategoryList}" class="tags">
+								<li><a href="#">[[${category.categoryName}]]</a></li>
+							</ul>
+						</div>
+					</div>
+				</aside>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 页脚引入 -->
+	<footer th:include="footer::footer">
+	</footer>
+	<!-- 页脚 js 引入 -->
+	<div  th:include="footer::footer-js"></div>
+
+</body>
+</html>

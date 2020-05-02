@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tao.blog.u.users.mapper.UsersMapper">
+
+	<resultMap id="usersMap" type="com.tao.blog.u.users.model.Users">
+		<id property="userId" column="userid" jdbcType="INTEGER" />
+		<result property="loginIp" column="loginip" jdbcType="VARCHAR" />
+		<result property="passwd" column="passwd" jdbcType="VARCHAR" />
+		<result property="userName" column="username" jdbcType="VARCHAR" />
+		<result property="email" column="centent" jdbcType="VARCHAR" />
+		<result property="profilePhoto" column="profile_photo" jdbcType="VARCHAR" />
+		<result property="level" column="level" jdbcType="VARCHAR" />
+		<result property="rights" column="rights" jdbcType="VARCHAR" />
+		<result property="age" column="age" jdbcType="VARCHAR" />
+		<result property="phone" column="phone" jdbcType="VARCHAR" />
+		<result property="nickName" column="nickName" jdbcType="VARCHAR" />
+		<result property="registrationTime" column="registration_time" jdbcType="DATE" />
+	</resultMap>
+
+
+	<select id="queryAll" resultMap="usersMap">
+		select * from users
+		
+	</select>
+
+	<!-- 用户登录  parameterType="String" -->
+	<select id="queryObject"  resultMap="usersMap">
+
+		select * from users
+			<where>
+			<if test="userName != null and userName != ''.trim()">
+				userName=#{userName,jdbcType=VARCHAR}
+			</if>
+
+			<if test="passwd != null and passwd != ''.trim()">
+				AND passwd=#{passwd,jdbcType=VARCHAR}
+			</if>
+
+		</where>
+
+	</select>
+
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tao.blog.u.article.mapper.CategoryMapper">
+	
+	<resultMap id="CategoryMap"
+		type="com.tao.blog.u.article.model.Category">
+		<id property="categoryId" column="category_id" jdbcType="INTEGER" />
+		<result property="categoryName" column="category_name" jdbcType="VARCHAR" />
+		<result property="createTime" column="create_time" jdbcType="DATE" />
+		<result property="modifiedTime" column="modified_time" jdbcType="DATE" />
+	</resultMap>
+
+
+	<select id="queryAll" resultMap="CategoryMap">
+		select * from article_category 
+	</select>
+	
+</mapper>
