@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author Thinking
  * 
  */
-public final class WebUtils {
+public final class WebUtil {
 
 	private static final String[] HEADERS_TO_TRY = { "X-Forwarded-For", "Proxy-Client-IP", "WL-Proxy-Client-IP",
 			"HTTP_X_FORWARDED_FOR", "HTTP_X_FORWARDED", "HTTP_X_CLUSTER_CLIENT_IP", "HTTP_CLIENT_IP",

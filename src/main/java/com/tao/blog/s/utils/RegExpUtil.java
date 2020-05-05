@@ -3,7 +3,7 @@ package com.tao.blog.s.utils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegExpValidatorUtils {
+public class RegExpUtil {
 
 	/**
 	 * 验证用户名 用户名： ---（由字母数字下划线组成且开头必须是字母，不能超过16位）");

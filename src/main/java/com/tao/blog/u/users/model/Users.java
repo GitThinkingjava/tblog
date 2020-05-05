@@ -1,10 +1,9 @@
 package com.tao.blog.u.users.model;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
-
-import lombok.Builder;
-import lombok.Data;
 
 /**
  * users 

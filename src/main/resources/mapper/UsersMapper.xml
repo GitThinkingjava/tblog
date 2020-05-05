@@ -17,7 +17,6 @@
 		<result property="registrationTime" column="registration_time" jdbcType="DATE" />
 	</resultMap>
 
-
 	<select id="queryAll" resultMap="usersMap">
 		select * from users
 		
@@ -39,5 +38,57 @@
 		</where>
 
 	</select>
+
+	<!--新增所有列 keyProperty="userid" useGeneratedKeys="true" -->
+	<insert id="save" parameterType="com.tao.blog.u.users.model.Users">
+        insert into blog.users(loginip, passwd, username, nickname, email, profile_photo, level, rights, age, phone, registration_time)
+        values (#{loginIp}, #{passwd}, #{userName}, #{nickName}, #{email}, #{profilePhoto}, #{level}, #{rights}, #{age}, #{phone}, #{registrationTime})
+    </insert>
+
+	<!--通过主键修改数据-->
+	<update id="update">
+		update blog.users
+		<set>
+			<if test="loginip != null and loginip != ''">
+				loginip = #{loginip},
+			</if>
+			<if test="passwd != null and passwd != ''">
+				passwd = #{passwd},
+			</if>
+			<if test="username != null and username != ''">
+				username = #{username},
+			</if>
+			<if test="nickname != null and nickname != ''">
+				nickname = #{nickname},
+			</if>
+			<if test="email != null and email != ''">
+				email = #{email},
+			</if>
+			<if test="profilePhoto != null and profilePhoto != ''">
+				profile_photo = #{profilePhoto},
+			</if>
+			<if test="level != null and level != ''">
+				level = #{level},
+			</if>
+			<if test="rights != null and rights != ''">
+				rights = #{rights},
+			</if>
+			<if test="age != null and age != ''">
+				age = #{age},
+			</if>
+			<if test="phone != null and phone != ''">
+				phone = #{phone},
+			</if>
+			<if test="registrationTime != null">
+				registration_time = #{registrationTime},
+			</if>
+		</set>
+		where userid = #{userid}
+	</update>
+
+	<!--通过主键删除-->
+	<delete id="deleteById">
+        delete from blog.users where userid = #{userid}
+    </delete>
 
 </mapper>

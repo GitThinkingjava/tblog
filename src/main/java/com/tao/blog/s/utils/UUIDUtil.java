@@ -10,7 +10,7 @@ import java.util.UUID;
  * @author tao
  *
  */
-public class UUIDUtils {
+public class UUIDUtil {
 
 	public static String getUUID() {
 		UUID uuid = UUID.randomUUID();
@@ -25,7 +25,7 @@ public class UUIDUtils {
 	public static void main(String[] args) {
 		Set<String> set = new HashSet<String>();
 		for (int i = 0; i < 10000; i++) {
-			set.add(UUIDUtils.getUUID());
+			set.add(UUIDUtil.getUUID());
 		}
 		System.out.println(getUUID32());
 

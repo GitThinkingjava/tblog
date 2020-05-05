@@ -27,7 +27,19 @@ spring:
     servlet:
       content-type: text/html
       prefix: classpath:/templates
-  
+  redis:
+    host: 47.95.218.235
+    port: 6379
+    password: Passwd235
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 500
+        min-idle: 0
+      lettuce:
+        shutdown-timeout: 0
+
 mybatis:
   mapper-locations: classpath:mapper/*.xml
  # type-aliases-package: ***  实体扫描，多个package用逗号或者分号分隔 自己的实体类地址 

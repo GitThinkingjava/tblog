@@ -1,9 +1,9 @@
 package com.tao.blog.u.users.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
-
 import com.tao.blog.s.common.BaseDao;
 import com.tao.blog.u.users.model.Users;
+import org.apache.ibatis.annotations.Mapper;
+
 
 /**
  * UsersDAO继承基类

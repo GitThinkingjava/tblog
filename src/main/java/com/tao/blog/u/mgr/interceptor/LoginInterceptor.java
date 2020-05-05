@@ -5,14 +5,14 @@ import java.lang.reflect.Method;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tao.blog.u.users.model.Users;
 import org.apache.logging.log4j.core.tools.picocli.CommandLine.Command;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.tao.blog.s.LoginCheck;
+import com.tao.blog.s.annotation.LoginCheck;
 import com.tao.blog.s.common.BaseController;
-import com.tao.blog.u.users.model.Users;
 
 import lombok.extern.log4j.Log4j2;
 

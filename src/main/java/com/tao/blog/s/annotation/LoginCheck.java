@@ -1,4 +1,4 @@
-package com.tao.blog.s;
+package com.tao.blog.s.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

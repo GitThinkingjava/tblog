@@ -19,7 +19,7 @@ public class ArticleServiceImpl extends BaseServiceImpl<Article> implements IArt
 
 	@Autowired
 	ArticleMapper articleMapper;
-
+	
 	@Override
 	public List<Article> queryAll(Article t) {
 		return articleMapper.queryAll(t);

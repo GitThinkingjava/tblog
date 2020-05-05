@@ -3,6 +3,7 @@ package com.tao.blog.u.article.contoller;
 import java.util.Date;
 import java.util.List;
 
+import com.tao.blog.u.users.model.Users;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageInfo;
-import com.tao.blog.s.LoginCheck;
+import com.tao.blog.s.annotation.LoginCheck;
 import com.tao.blog.s.common.BaseController;
 import com.tao.blog.s.rest.Resp;
 import com.tao.blog.s.rest.ReturnRest;
@@ -19,14 +20,13 @@ import com.tao.blog.u.article.ArticleHelper;
 import com.tao.blog.u.article.model.Article;
 import com.tao.blog.u.article.service.IArticleService;
 import com.tao.blog.u.article.service.ICategoryService;
-import com.tao.blog.u.users.model.Users;
 
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.log4j.Log4j2;
 
 /**
  * 文章前台展示
- * 
+ *
  * @author tao
  *
  */
@@ -36,11 +36,11 @@ import lombok.extern.log4j.Log4j2;
 public class ArticleController extends BaseController {
 
 	@Autowired
-	IArticleService articleService;
+	private	IArticleService articleService;
 
 	@Autowired
-	public ICategoryService categoryService;
-	
+	private ICategoryService categoryService;
+
 	@ApiOperation("文章列表")
 	@RequestMapping("index")
 	public String index(Integer pageNo) {
@@ -81,7 +81,6 @@ public class ArticleController extends BaseController {
 	@RequestMapping("mgr/news")
 	public String news(Article article) {
 		if (StringUtils.isNotBlank(article.getContent())) {
-			System.out.println(article.toString());
 			Users user = this.getUserInfo();
 			article.setAuthor(user.getUserName());
 			article.setCreateUser(user.getUserName());

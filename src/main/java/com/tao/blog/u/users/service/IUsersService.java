@@ -3,6 +3,7 @@ package com.tao.blog.u.users.service;
 import com.tao.blog.s.common.BaseService;
 import com.tao.blog.u.users.model.Users;
 
+
 public interface IUsersService  extends BaseService<Users>{
 
 	/**

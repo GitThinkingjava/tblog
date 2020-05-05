@@ -1,4 +1,4 @@
-package com.tao.blog.word.test;
+package com.tao.blog.word;
 
 import java.awt.Font;
 import java.io.FileOutputStream;
